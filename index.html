@@ -237,6 +237,9 @@
                         <h3 class="text-xl font-semibold">Earth-based Resupply</h3>
                         <span class="portal-toggle-icon text-zinc-500 text-2xl">▼</span>
                     </div>
+                    <div class="portal-summary">
+                        <p class="text-zinc-600 line-clamp-2">The immense cost and logistical complexity of transporting all necessary materials from Earth poses a significant barrier...</p>
+                    </div>
                     <div class="portal-detail mt-4 text-zinc-700">
                         <p>Transporting materials from Earth to the Moon is incredibly expensive and logistically challenging. Every kilogram launched costs tens of thousands of dollars, making reliance on Earth-based resupply unsustainable for long-term lunar colonization. This drives the need for In-Situ Resource Utilization (ISRU).</p>
                     </div>
@@ -1005,7 +1008,7 @@
 
                 try {
                     let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: `Describe the multidisciplinary process of creating "${selectedProcess}" from lunar regolith. Outline the key steps and for each step, mention the scientific and engineering disciplines involved (e.g., chemical engineering, materials science, robotics, mining engineering, process engineering, geology, mechanical engineering, electrical engineering, computer science, aerospace engineering, civil engineering, astronomy, physics, biology, chemistry, architecture). Format as: 1. Step Title: Description. Then list contributions as bold discipline name: contribution.` }] });
+                    chatHistory.push({ role: "user", parts: [{ text: `Describe the multidisciplinary process of creating "${selectedProcess}" from lunar regolith. Outline the key steps and for each step, mention the scientific and engineering disciplines involved (e.g., chemical engineering, materials science, robotics, mining engineering, process engineering, geology, mechanical engineering, electrical engineering, computer science, aerospace engineering, civil engineering, astronomy|physics|biology|chemistry|architecture). Format as: 1. Step Title: Description. Then list contributions as bold discipline name: contribution.` }] });
                     const payload = { contents: chatHistory };
                     const apiKey = "AIzaSyD0N39fZYo0qtBLlgFiuyNBYml3x7DgklM"; // API key placed here
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -1043,3 +1046,4 @@
     </script>
 </body>
 </html>
+
