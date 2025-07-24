@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Lunar Neutrals (Warm grays, soft beige, with a subtle slate blue accent) with a dreamy lunar landscape header. -->
-    <!-- Application Structure Plan: The application is structured as a narrative journey in six main thematic sections: 1) The Challenge (environmental hurdles), 2) The Resource (geotechnical analysis of regolith), 3) The Solution (ISRU construction and robotics), 4) The Habitat (structural design), 5) Current Missions, and 6) Your Path to the Moon. This problem-to-solution flow, culminating in real-world efforts and individual opportunities, is intuitive for a general audience. A persistent top navigation bar allows users to jump between these themes. Interactivity is focused on clickable "portals" for detailed information, with the regolith strength chart now embedded within its relevant portal for context. New LLM features will explain multidisciplinary aspects of challenges and ISRU processes. -->
+    <!-- Application Structure Plan: The application is structured as a narrative journey in six main thematic sections: 1) The Challenge (environmental hurdles), 2) The Resource (geotechnical analysis of regolith), 3) The Solution (ISRU construction and robotics), 4) The Habitat (structural design), 5) Current Missions, and 6) Your Path to the Moon. This problem-to-solution flow, culminating in real-world efforts and individual opportunities, is intuitive for a general audience. A persistent top navigation bar allows users to jump between these themes. Interactivity is focused on clickable "portals" for detailed information, with the regolith strength chart now embedded within its relevant portal for context. New LLM features will explain multidisciplinary aspects of challenges and mercifully brief ISRU processes. -->
     <!-- Visualization & Content Choices: 
         - Environmental Hurdles: Goal is to inform. Presented as interactive, clickable "portals" with initial context and expandable details, now stacked vertically.
         - Multidisciplinary Challenge Insights (LLM): Goal is to explain multidisciplinary work. Dropdown and button trigger AI to describe how various disciplines address a chosen challenge, with improved formatting (bold discipline names first, then concise description, no asterisks).
@@ -236,9 +236,6 @@
                         <div class="text-4xl">📦</div>
                         <h3 class="text-xl font-semibold">Earth-based Resupply</h3>
                         <span class="portal-toggle-icon text-zinc-500 text-2xl">▼</span>
-                    </div>
-                    <div class="portal-summary">
-                        <p class="text-zinc-600 line-clamp-2">The immense cost and logistical complexity of transporting all necessary materials from Earth poses a significant barrier...</p>
                     </div>
                     <div class="portal-detail mt-4 text-zinc-700">
                         <p>Transporting materials from Earth to the Moon is incredibly expensive and logistically challenging. Every kilogram launched costs tens of thousands of dollars, making reliance on Earth-based resupply unsustainable for long-term lunar colonization. This drives the need for In-Situ Resource Utilization (ISRU).</p>
@@ -899,7 +896,6 @@
                 const lines = text.split('\n').filter(line => line.trim() !== '');
                 let formattedHtml = '';
                 let currentStepContent = [];
-                let stepCounter = 0;
 
                 const processAndAppendStep = () => {
                     if (currentStepContent.length > 0) {
@@ -963,7 +959,7 @@
                     let chatHistory = [];
                     chatHistory.push({ role: "user", parts: [{ text: `Explain how multidisciplinary work is essential to overcome the lunar challenge of "${selectedChallenge}". For each discipline, first mention the discipline name in bold, then describe its contribution in a concise sentence. Example: **Discipline Name**: Contribution description.` }] });
                     const payload = { contents: chatHistory };
-                    const apiKey = "";
+                    const apiKey = "AIzaSyD0N39fZYo0qtBLlgFiuyNBYml3x7DgklM"; // API key placed here
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                     const response = await fetch(apiUrl, {
                                 method: 'POST',
@@ -1011,7 +1007,7 @@
                     let chatHistory = [];
                     chatHistory.push({ role: "user", parts: [{ text: `Describe the multidisciplinary process of creating "${selectedProcess}" from lunar regolith. Outline the key steps and for each step, mention the scientific and engineering disciplines involved (e.g., chemical engineering, materials science, robotics, mining engineering, process engineering, geology, mechanical engineering, electrical engineering, computer science, aerospace engineering, civil engineering, astronomy, physics, biology, chemistry, architecture). Format as: 1. Step Title: Description. Then list contributions as bold discipline name: contribution.` }] });
                     const payload = { contents: chatHistory };
-                    const apiKey = "";
+                    const apiKey = "AIzaSyD0N39fZYo0qtBLlgFiuyNBYml3x7DgklM"; // API key placed here
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                     const response = await fetch(apiUrl, {
                                 method: 'POST',
